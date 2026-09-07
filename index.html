@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BLISS Language Academy — онлайн-школа иностранных языков</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.5.0/css/flag-icons.min.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -11,20 +12,20 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --pink:    #FF4D9F;
-    --pink-d:  #e03588;
-    --purple:  #7C3AED;
-    --lavender:#EDE9FE;
-    --sky:     #BAE6FD;
+    --pink:    #EC008C;
+    --pink-d:  #C2006F;
+    --purple:  #C2006F;
+    --lavender:#FCE4F1;
+    --sky:     #FBC4DF;
     --white:   #FFFFFF;
-    --offwhite:#FAF8FF;
-    --text:    #1e1b2e;
+    --offwhite:#FFF6FB;
+    --text:    #2b1320;
     --muted:   #6b7280;
     --radius:  18px;
-    --shadow:  0 8px 32px rgba(124,58,237,.10);
+    --shadow:  0 8px 32px rgba(236,0,140,.10);
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
   body {
     font-family: 'Inter', sans-serif;
@@ -44,20 +45,41 @@
     height: 68px;
     transition: box-shadow .3s;
   }
-  nav.scrolled { box-shadow: 0 4px 24px rgba(124,58,237,.12); }
+  nav.scrolled { box-shadow: 0 4px 24px rgba(236,0,140,.12); }
 
   .nav-logo {
     display: flex; align-items: center; gap: 10px;
     text-decoration: none;
   }
+
+  /* circular badge logo, matches brand mark */
+  .brand-circle {
+    position: relative;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    border: 2px solid var(--pink);
+    background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .brand-circle .heart {
+    position: absolute; top: -3px; right: -1px;
+    font-size: 9px; color: var(--pink); line-height: 1;
+  }
+  .brand-circle-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: .62rem;
+    letter-spacing: .01em;
+    color: var(--pink);
+    line-height: 1;
+  }
+
   .nav-logo-badge {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 1.55rem;
-    background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 1.4rem;
+    color: var(--pink);
     line-height: 1;
   }
   .nav-logo-sub {
@@ -144,7 +166,7 @@
     display: flex; align-items: center; justify-content: center;
     text-align: center;
     overflow: hidden;
-    background: linear-gradient(145deg, #fff 0%, #f9f0ff 45%, #fce7f3 100%);
+    background: linear-gradient(145deg, #fff 0%, #fff0f7 45%, #fce7f3 100%);
     padding: 5rem 5vw 6rem;
   }
 
@@ -237,7 +259,12 @@
     padding: .45rem 1.1rem;
     font-size: .85rem; font-weight: 500;
     backdrop-filter: blur(8px);
-    box-shadow: 0 2px 10px rgba(124,58,237,.07);
+    box-shadow: 0 2px 10px rgba(236,0,140,.07);
+  }
+  .flag-pill .fi {
+    font-size: 1.3em;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08);
   }
 
   /* ── WAVE DIVIDER ─────────────────────────────── */
@@ -278,17 +305,20 @@
   .lang-header .section-desc { margin: 0 auto; }
 
   .lang-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
     max-width: 1100px; margin: 0 auto;
   }
 
   .lang-card {
+    flex: 1 1 300px;
+    max-width: 345px;
     background: var(--white);
     border-radius: var(--radius);
     padding: 2.2rem 2rem;
-    border: 1px solid rgba(124,58,237,.08);
+    border: 1px solid rgba(236,0,140,.08);
     box-shadow: var(--shadow);
     transition: transform .3s, box-shadow .3s;
     position: relative;
@@ -303,12 +333,14 @@
   }
   .lang-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 48px rgba(124,58,237,.16);
+    box-shadow: 0 20px 48px rgba(236,0,140,.16);
   }
 
   .lang-flag {
     font-size: 3rem; margin-bottom: 1rem;
     display: block;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08);
   }
   .lang-card h3 {
     font-family: 'Playfair Display', serif;
@@ -353,7 +385,7 @@
     overflow: hidden;
   }
   .why-graphic {
-    background: linear-gradient(145deg, #fce7f3 0%, #ede9fe 100%);
+    background: linear-gradient(145deg, #fce7f3 0%, #fde2f0 100%);
     border-radius: 24px;
     padding: 3rem 2rem;
     display: flex; flex-direction: column; gap: 1rem;
@@ -365,7 +397,7 @@
     background: var(--white);
     border-radius: 14px;
     padding: 1.1rem 1.2rem;
-    box-shadow: 0 2px 12px rgba(124,58,237,.07);
+    box-shadow: 0 2px 12px rgba(236,0,140,.07);
     transition: transform .25s;
   }
   .why-feat:hover { transform: translateX(6px); }
@@ -389,12 +421,15 @@
   .club-header .section-desc { margin: 0 auto; }
 
   .club-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem; max-width: 900px; margin: 0 auto;
   }
 
   .club-card {
+    flex: 1 1 260px;
+    max-width: 280px;
     background: var(--white);
     border-radius: var(--radius);
     padding: 2rem 1.8rem;
@@ -415,7 +450,11 @@
     transform: translateY(-6px);
     box-shadow: 0 18px 40px rgba(255,77,159,.14);
   }
-  .club-emoji { font-size: 2.8rem; margin-bottom: .9rem; }
+  .club-emoji {
+    font-size: 2.8rem; margin-bottom: .9rem;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08);
+  }
   .club-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.25rem; font-weight: 700;
@@ -552,6 +591,7 @@
   @media (max-width: 768px) {
     .nav-links, .nav-links + .btn-primary { display: none; }
     .nav-burger { display: flex; }
+    .nav-logo-sub { display: none; }
 
     .why-inner { grid-template-columns: 1fr; gap: 2.5rem; }
 
@@ -562,12 +602,51 @@
 
   @media (max-width: 480px) {
     .hero { min-height: 100svh; }
-    .lang-grid { grid-template-columns: 1fr; }
-    .club-grid { grid-template-columns: 1fr; }
+    .lang-card { flex-basis: 100%; max-width: 100%; }
+    .club-card { flex-basis: 100%; max-width: 100%; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .blob { animation: none; }
+  }
+  .lang-switch {
+    display: flex; align-items: center;
+    background: var(--lavender, #f3e8ff);
+    border: 1px solid rgba(236,0,140,.18);
+    border-radius: 50px;
+    padding: .3rem .3rem;
+    gap: .2rem;
+    margin-right: .6rem;
+    flex-shrink: 0;
+  }
+  .lang-switch button {
+    border: none; background: transparent; cursor: pointer;
+    font-family: inherit; font-size: .72rem; font-weight: 700;
+    letter-spacing: .03em;
+    padding: .35rem .7rem;
+    border-radius: 50px;
+    color: var(--muted);
+    transition: background .2s, color .2s;
+  }
+  .lang-switch button.active {
+    background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+    color: #fff;
+  }
+  .mobile-lang-switch {
+    display: flex; justify-content: center; gap: .5rem;
+    margin-bottom: .5rem;
+  }
+  .mobile-lang-switch button {
+    border: 1px solid rgba(236,0,140,.25); background: transparent; cursor: pointer;
+    font-family: inherit; font-size: .85rem; font-weight: 700;
+    padding: .5rem 1.4rem; border-radius: 50px; color: var(--muted);
+  }
+  .mobile-lang-switch button.active {
+    background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+    color: #fff; border-color: transparent;
+  }
+  @media (max-width: 900px) {
+    .lang-switch { display: none; }
   }
 </style>
 </head>
@@ -576,19 +655,28 @@
 <!-- ── NAVBAR ───────────────────────────────────────── -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
+    <span class="brand-circle">
+      <span class="brand-circle-text">BLISS</span>
+      <span class="heart">♡</span>
+    </span>
     <span class="nav-logo-badge">BLISS</span>
     <span class="nav-logo-sub">Language Academy<br>by Rakhatova Guzal</span>
   </a>
 
   <ul class="nav-links">
-    <li><a href="#courses">Курсы</a></li>
-    <li><a href="#about">О нас</a></li>
+    <li><a href="#courses" data-kz="Курстар">Курсы</a></li>
+    <li><a href="#about" data-kz="Біз туралы">О нас</a></li>
     <li><a href="#speaking">Speaking Clubs</a></li>
   </ul>
 
+  <div class="lang-switch" id="langSwitch">
+    <button data-lang="ru" class="active">РУС</button>
+    <button data-lang="kz">ҚАЗ</button>
+  </div>
+
   <a href="https://wa.me/77076383455?text=Хочу%20записаться%20на%20курс!" class="btn-primary" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.826L.057 23.857l6.204-1.627A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.514-5.167-1.407l-.37-.22-3.825 1.003 1.023-3.72-.243-.386A9.937 9.937 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-    Записаться
+    <span data-kz="Жазылу">Записаться</span>
   </a>
 
   <button class="nav-burger" id="burger" aria-label="Меню">
@@ -597,12 +685,16 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#courses" onclick="closeMobile()">Курсы</a>
-  <a href="#about" onclick="closeMobile()">О нас</a>
+  <a href="#courses" onclick="closeMobile()" data-kz="Курстар">Курсы</a>
+  <a href="#about" onclick="closeMobile()" data-kz="Біз туралы">О нас</a>
   <a href="#speaking" onclick="closeMobile()">Speaking Clubs</a>
   <a href="https://wa.me/77076383455?text=Хочу%20записаться%20на%20курс!" class="btn-primary" target="_blank" rel="noopener" onclick="closeMobile()">
-    Записаться в WhatsApp
+    <span data-kz="WhatsApp арқылы жазылу">Записаться в WhatsApp</span>
   </a>
+  <div class="mobile-lang-switch" id="mobileLangSwitch">
+    <button data-lang="ru" class="active">РУС</button>
+    <button data-lang="kz">ҚАЗ</button>
+  </div>
 </div>
 
 <!-- ── HERO ──────────────────────────────────────────── -->
@@ -612,21 +704,23 @@
   <div class="blob blob-3"></div>
 
   <div class="hero-content">
-    <span class="hero-eyebrow">✨ Онлайн-школа иностранных языков · Казахстан</span>
-    <h1>Заговори<br><span>на языке мечты</span></h1>
-    <p class="hero-sub">Английский, Немецкий, Китайский — для взрослых и детей от 10 лет. Живые занятия, маленькие группы и разговорные клубы каждую неделю.</p>
+    <span class="hero-eyebrow" data-kz="✨ Шет тілдері онлайн-мектебі · Қазақстан">✨ Онлайн-школа иностранных языков · Казахстан</span>
+    <h1 data-kz-html="Сөйлей баста<br><span>армандаған тілде</span>">Заговори<br><span>на языке мечты</span></h1>
+    <p class="hero-sub" data-kz="Ағылшын, неміс, қытай, қазақ, итальян тілдері — ересектер мен 10 жастан асқан балаларға арналған. Тірі сабақтар, шағын топтар және апта сайынғы speaking клубтар.">Английский, Немецкий, Китайский, Казахский, Итальянский — для взрослых и детей от 10 лет. Живые занятия, маленькие группы и разговорные клубы каждую неделю.</p>
     <div class="hero-ctas">
       <a href="https://wa.me/77076383455?text=Хочу%20записаться%20на%20курс!" class="btn-primary" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.826L.057 23.857l6.204-1.627A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.514-5.167-1.407l-.37-.22-3.825 1.003 1.023-3.72-.243-.386A9.937 9.937 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-        Начать
+        <span data-kz="Бастау">Начать</span>
       </a>
-      <a href="#courses" class="btn-secondary">Смотреть курсы →</a>
+      <a href="#courses" class="btn-secondary" data-kz="Курстарды қарау →">Смотреть курсы →</a>
     </div>
 
     <div class="hero-flags">
-      <div class="flag-pill">🇬🇧 Английский</div>
-      <div class="flag-pill">🇩🇪 Немецкий</div>
-      <div class="flag-pill">🇨🇳 Китайский</div>
+      <div class="flag-pill"><span class="fi fi-gb"></span> <span data-kz="Ағылшын">Английский</span></div>
+      <div class="flag-pill"><span class="fi fi-de"></span> <span data-kz="Неміс">Немецкий</span></div>
+      <div class="flag-pill"><span class="fi fi-cn"></span> <span data-kz="Қытай">Китайский</span></div>
+      <div class="flag-pill"><span class="fi fi-kz"></span> <span data-kz="Қазақ">Казахский</span></div>
+      <div class="flag-pill"><span class="fi fi-it"></span> <span data-kz="Итальян">Итальянский</span></div>
     </div>
   </div>
 </section>
@@ -641,46 +735,70 @@
 <!-- ── COURSES ─────────────────────────────────────── -->
 <section id="courses">
   <div class="lang-header">
-    <span class="section-eyebrow">Наши курсы</span>
-    <h2 class="section-title">Три языка. <span>Один уровень выше.</span></h2>
-    <p class="section-desc">Программы для взрослых и детей от 10 лет — с акцентом на живое общение и реальный результат.</p>
+    <span class="section-eyebrow" data-kz="Біздің курстар">Наши курсы</span>
+    <h2 class="section-title" data-kz-html="Бес тіл. <span>Бір деңгей жоғары.</span>">Пять языков. <span>На один уровень выше.</span></h2>
+    <p class="section-desc" data-kz="Ересектер мен 10 жастан асқан балаларға арналған бағдарламалар — тірі қарым-қатынасқа және нақты нәтижеге баса назар аудара отырып.">Программы для взрослых и детей от 10 лет — с акцентом на живое общение и реальный результат.</p>
   </div>
   <div class="lang-grid">
 
     <div class="lang-card">
-      <span class="lang-flag">🇬🇧</span>
-      <h3>Английский</h3>
-      <span class="lang-level">A2 → C1</span>
-      <p>Разговорная практика, грамматика, деловой английский. Курсы для взрослых и детей с адаптированной программой под цели каждого студента.</p>
+      <span class="lang-flag fi fi-gb"></span>
+      <h3 data-kz="Ағылшын тілі">Английский</h3>
+      <span class="lang-level">A1 → C1</span>
+      <p data-kz="Ауызша сөйлеу тәжірибесі, грамматика, іскерлік ағылшын тілі. Әр студенттің мақсатына бейімделген бағдарламамен ересектер мен балаларға арналған курстар.">Разговорная практика, грамматика, деловой английский. Курсы для взрослых и детей с адаптированной программой под цели каждого студента.</p>
       <div class="lang-tags">
-        <span class="tag">Разговорная практика</span>
-        <span class="tag">Грамматика</span>
-        <span class="tag">Дети / Взрослые</span>
-        <span class="tag">Бизнес</span>
+        <span class="tag" data-kz="Ауызша тәжірибе">Разговорная практика</span>
+        <span class="tag" data-kz="Грамматика">Грамматика</span>
+        <span class="tag" data-kz="Балалар / Ересектер">Дети / Взрослые</span>
+        <span class="tag" data-kz="Бизнес">Бизнес</span>
       </div>
     </div>
 
     <div class="lang-card">
-      <span class="lang-flag">🇩🇪</span>
-      <h3>Немецкий</h3>
+      <span class="lang-flag fi fi-de"></span>
+      <h3 data-kz="Неміс тілі">Немецкий</h3>
       <span class="lang-level">A1 → B2</span>
-      <p>Немецкий с нуля до уверенного владения. Программа для взрослых и детей, фокус на грамматике, произношении и живой речи.</p>
+      <p data-kz="Неміс тілін нөлден бастап еркін меңгергенге дейін. Ересектер мен балаларға арналған бағдарлама, грамматикаға, айтылымға және тірі сөйлеуге баса назар аударылады.">Немецкий с нуля до уверенного владения. Программа для взрослых и детей, фокус на грамматике, произношении и живой речи.</p>
       <div class="lang-tags">
-        <span class="tag">С нуля</span>
-        <span class="tag">Грамматика</span>
-        <span class="tag">Дети / Взрослые</span>
+        <span class="tag" data-kz="Нөлден бастап">С нуля</span>
+        <span class="tag" data-kz="Грамматика">Грамматика</span>
+        <span class="tag" data-kz="Балалар / Ересектер">Дети / Взрослые</span>
       </div>
     </div>
 
     <div class="lang-card">
-      <span class="lang-flag">🇨🇳</span>
-      <h3>Китайский</h3>
+      <span class="lang-flag fi fi-cn"></span>
+      <h3 data-kz="Қытай тілі">Китайский</h3>
       <span class="lang-level">HSK 1 → HSK 4</span>
-      <p>Один из самых перспективных языков мира. Изучаем иероглифы, тоны и живой разговорный китайский — для взрослых и детей.</p>
+      <p data-kz="Әлемдегі ең перспективалы тілдердің бірі. Иероглифтерді, дыбыс үндерін және тірі ауызекі қытай тілін үйренеміз — ересектер мен балаларға арналған.">Один из самых перспективных языков мира. Изучаем иероглифы, тоны и живой разговорный китайский — для взрослых и детей.</p>
       <div class="lang-tags">
-        <span class="tag">Иероглифы</span>
-        <span class="tag">Пиньинь</span>
-        <span class="tag">Дети / Взрослые</span>
+        <span class="tag" data-kz="Иероглифтер">Иероглифы</span>
+        <span class="tag" data-kz="Пиньинь">Пиньинь</span>
+        <span class="tag" data-kz="Балалар / Ересектер">Дети / Взрослые</span>
+      </div>
+    </div>
+
+    <div class="lang-card">
+      <span class="lang-flag fi fi-kz"></span>
+      <h3 data-kz="Қазақ тілі">Казахский</h3>
+      <span class="lang-level">A1 → B2</span>
+      <p data-kz="Қазақ тілін нөлден үйренуге де, еркін сөйлегісі келетіндерге де арналған. Тірі ауызша тәжірибе, грамматика және мәдениет — ересектер мен балаларға арналған.">Казахский язык с нуля и для тех, кто хочет говорить свободно. Живая разговорная практика, грамматика и культура — для взрослых и детей.</p>
+      <div class="lang-tags">
+        <span class="tag" data-kz="Нөлден бастап">С нуля</span>
+        <span class="tag" data-kz="Ауызша тәжірибе">Разговорная практика</span>
+        <span class="tag" data-kz="Балалар / Ересектер">Дети / Взрослые</span>
+      </div>
+    </div>
+
+    <div class="lang-card">
+      <span class="lang-flag fi fi-it"></span>
+      <h3 data-kz="Итальян тілі">Итальянский</h3>
+      <span class="lang-level">A1 → B2</span>
+      <p data-kz="Өнер мен саяхаттың әуезді тілі. Грамматика, тірі айтылым және ауызша тәжірибе — ересектер мен балаларға арналған.">Мелодичный язык искусства и путешествий. Грамматика, живое произношение и разговорная практика — для взрослых и детей.</p>
+      <div class="lang-tags">
+        <span class="tag" data-kz="Нөлден бастап">С нуля</span>
+        <span class="tag" data-kz="Грамматика">Грамматика</span>
+        <span class="tag" data-kz="Балалар / Ересектер">Дети / Взрослые</span>
       </div>
     </div>
 
@@ -698,10 +816,10 @@
 <section id="about">
   <div class="why-inner">
     <div>
-      <span class="section-eyebrow">Почему выбирают нас</span>
-      <h2 class="section-title">Подход, который <span>даёт результат</span></h2>
-      <p class="section-desc" style="margin-bottom: 2rem;">BLISS — это не просто курсы. Это среда, где ты растёшь в языке каждую неделю.</p>
-      <a href="https://wa.me/77076383455?text=Хочу%20узнать%20подробнее!" class="btn-primary" target="_blank" rel="noopener" style="margin-top:.5rem;">Узнать подробнее</a>
+      <span class="section-eyebrow" data-kz="Неге бізді таңдайды">Почему выбирают нас</span>
+      <h2 class="section-title" data-kz-html="Нәтижеге әкелетін <span>тәсіл</span>">Подход, который <span>даёт результат</span></h2>
+      <p class="section-desc" style="margin-bottom: 2rem;" data-kz="BLISS — жай ғана курстар емес. Бұл — сен апта сайын тілде дамитын орта.">BLISS — это не просто курсы. Это среда, где ты растёшь в языке каждую неделю.</p>
+      <a href="https://wa.me/77076383455?text=Хочу%20узнать%20подробнее!" class="btn-primary" target="_blank" rel="noopener" style="margin-top:.5rem;" data-kz="Толығырақ білу">Узнать подробнее</a>
     </div>
 
     <div class="why-graphic">
@@ -709,32 +827,32 @@
       <div class="why-feat">
         <div class="why-feat-icon">🎯</div>
         <div class="why-feat-text">
-          <h4>Индивидуальный подход</h4>
-          <p>Маленькие группы или индивидуальные занятия. Программа строится под твои цели и темп.</p>
+          <h4 data-kz="Жеке тәсіл">Индивидуальный подход</h4>
+          <p data-kz="Шағын топтар немесе жеке сабақтар. Бағдарлама сенің мақсатың мен қарқыныңа сай құрылады.">Маленькие группы или индивидуальные занятия. Программа строится под твои цели и темп.</p>
         </div>
       </div>
 
       <div class="why-feat">
         <div class="why-feat-icon">💬</div>
         <div class="why-feat-text">
-          <h4>Много разговорной практики</h4>
-          <p>Speaking clubs каждую неделю. Говоришь с первого занятия — не ждёшь «нужного уровня».</p>
+          <h4 data-kz="Көп ауызша тәжірибе">Много разговорной практики</h4>
+          <p data-kz="Speaking clubs апта сайын өтеді. Бірінші сабақтан бастап сөйлейсің — «керекті деңгейді» күтпейсің.">Speaking clubs каждую неделю. Говоришь с первого занятия — не ждёшь «нужного уровня».</p>
         </div>
       </div>
 
       <div class="why-feat">
         <div class="why-feat-icon">💻</div>
         <div class="why-feat-text">
-          <h4>Удобная платформа</h4>
-          <p>Занятия в Google Meet, Telegram-канал с материалами и домашними заданиями всегда под рукой.</p>
+          <h4 data-kz="Ыңғайлы платформа">Удобная платформа</h4>
+          <p data-kz="Сабақтар Google Meet арқылы өтеді, материалдары мен үй тапсырмалары бар Telegram-каналы әрқашан қолыңда.">Занятия в Google Meet, Telegram-канал с материалами и домашними заданиями всегда под рукой.</p>
         </div>
       </div>
 
       <div class="why-feat">
         <div class="why-feat-icon">🌟</div>
         <div class="why-feat-text">
-          <h4>Опытный преподаватель</h4>
-          <p>Основатель Guzal Rakhatova — педагог с системным подходом и страстью к языкам.</p>
+          <h4 data-kz="Тәжірибелі оқытушы">Опытный преподаватель</h4>
+          <p data-kz="Негізін қалаушы Гузал Рахатова — жүйелі тәсілі мен тілдерге деген құштарлығы бар педагог.">Основатель Guzal Rakhatova — педагог с системным подходом и страстью к языкам.</p>
         </div>
       </div>
 
@@ -753,30 +871,44 @@
 <section id="speaking">
   <div class="club-header">
     <span class="section-eyebrow">Speaking Clubs</span>
-    <h2 class="section-title">Разговорные встречи <span>каждую неделю</span></h2>
-    <p class="section-desc">Клуб — это живая практика в дружеской атмосфере. Один раз в неделю по каждому языку. Открыто для всех студентов BLISS.</p>
+    <h2 class="section-title" data-kz-html="Апта сайынғы <span>сөйлеу кездесулері</span>">Разговорные встречи <span>каждую неделю</span></h2>
+    <p class="section-desc" data-kz="Клуб — достық атмосферасындағы тірі тәжірибе. Әр тіл бойынша аптасына бір рет өтеді. BLISS-тің барлық студенттеріне ашық.">Клуб — это живая практика в дружеской атмосфере. Один раз в неделю по каждому языку. Открыто для всех студентов BLISS.</p>
   </div>
   <div class="club-grid">
 
     <div class="club-card">
-      <div class="club-emoji">🇬🇧</div>
+      <div class="club-emoji fi fi-gb"></div>
       <h3>English Speaking Club</h3>
-      <p>Обсуждаем интересные темы, смотрим видео, разыгрываем ситуации. Уровень — от A2 до C1.</p>
-      <span class="club-badge">1 раз в неделю</span>
+      <p data-kz="Қызықты тақырыптарды талқылаймыз, видео көреміз, түрлі жағдаяттарды сомдаймыз. Деңгейі — A1-ден C1-ге дейін.">Обсуждаем интересные темы, смотрим видео, разыгрываем ситуации. Уровень — от A1 до C1.</p>
+      <span class="club-badge" data-kz="Аптасына 1 рет">1 раз в неделю</span>
     </div>
 
     <div class="club-card">
-      <div class="club-emoji">🇩🇪</div>
+      <div class="club-emoji fi fi-de"></div>
       <h3>Deutsches Sprachclub</h3>
-      <p>Практикуем разговорный немецкий в игровом и дискуссионном формате. Без страха ошибиться!</p>
-      <span class="club-badge">1 раз в неделю</span>
+      <p data-kz="Ойын және пікірталас форматында ауызекі неміс тілін жаттықтырамыз. Қателесуден қорықпай!">Практикуем разговорный немецкий в игровом и дискуссионном формате. Без страха ошибиться!</p>
+      <span class="club-badge" data-kz="Аптасына 1 рет">1 раз в неделю</span>
     </div>
 
     <div class="club-card">
-      <div class="club-emoji">🇨🇳</div>
+      <div class="club-emoji fi fi-cn"></div>
       <h3>汉语口语俱乐部</h3>
-      <p>Говорим по-китайски: темы, диалоги, культура. Подходит для уровней HSK 1–3.</p>
-      <span class="club-badge">1 раз в неделю</span>
+      <p data-kz="Қытайша сөйлейміз: тақырыптар, диалогтар, мәдениет. HSK 1–4 деңгейлеріне сай келеді.">Говорим по-китайски: темы, диалоги, культура. Подходит для уровней HSK 1–4.</p>
+      <span class="club-badge" data-kz="Аптасына 1 рет">1 раз в неделю</span>
+    </div>
+
+    <div class="club-card">
+      <div class="club-emoji fi fi-kz"></div>
+      <h3>Қазақ тілі клубы</h3>
+      <p data-kz="Ауызекі қазақ тілін өмірлік тақырыптар мен достық атмосферада жаттықтырамыз. Деңгейі — A1-ден B2-ге дейін.">Практикуем разговорный казахский на живых темах и в дружеской атмосфере. Уровень — от A1 до B2.</p>
+      <span class="club-badge" data-kz="Аптасына 1 рет">1 раз в неделю</span>
+    </div>
+
+    <div class="club-card">
+      <div class="club-emoji fi fi-it"></div>
+      <h3>Club di Conversazione Italiana</h3>
+      <p data-kz="Итальянша сөйлейміз: тақырыптар, диалогтар, мәдениет және сәл-пәл «dolce vita». Деңгейі — A1-ден B2-ге дейін.">Говорим по-итальянски: темы, диалоги, культура и немного «дольче вита». Уровень — от A1 до B2.</p>
+      <span class="club-badge" data-kz="Аптасына 1 рет">1 раз в неделю</span>
     </div>
 
   </div>
@@ -784,16 +916,16 @@
 
 <!-- ── CTA BANNER ─────────────────────────────────── -->
 <div class="cta-banner">
-  <h2>Готова заговорить<br>на языке мечты?</h2>
-  <p>Напиши нам — первый пробный урок бесплатно. Мы подберём идеальный курс под тебя.</p>
+  <h2 data-kz-html="Армандаған тілде<br>сөйлеуге дайынсың ба?">Готовы заговорить<br>на языке мечты?</h2>
+  <p data-kz="Бізге жаз — сен үшін тамаша курсты таңдап береміз.">Напиши нам — Мы подберём идеальный курс под тебя.</p>
   <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;position:relative;">
-    <a href="https://wa.me/77076383455?text=Хочу%20пробный%20урок%20бесплатно!" class="btn-white" target="_blank" rel="noopener">
+    <a href="https://wa.me/77076383455?text=Хочу%20записаться%20на%20курс" class="btn-white" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.826L.057 23.857l6.204-1.627A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.514-5.167-1.407l-.37-.22-3.825 1.003 1.023-3.72-.243-.386A9.937 9.937 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      Написать в WhatsApp
+      <span data-kz="WhatsApp-қа жазу">Написать в WhatsApp</span>
     </a>
     <a href="https://t.me/77076383455" class="btn-white btn-tg" target="_blank" rel="noopener" style="color:#229ED9;">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-      Написать в Telegram
+      <span data-kz="Telegram-ға жазу">Написать в Telegram</span>
     </a>
   </div>
 </div>
@@ -803,8 +935,14 @@
   <div class="footer-grid">
 
     <div class="footer-brand">
-      <div class="nav-logo-badge">BLISS</div>
-      <p>Language Academy by Rakhatova Guzal — онлайн-школа английского, немецкого и китайского языков в Казахстане. Для взрослых и детей от 10 лет.</p>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:.8rem;">
+        <span class="brand-circle" style="width:54px;height:54px;">
+          <span class="brand-circle-text" style="font-size:.72rem;">BLISS</span>
+          <span class="heart" style="font-size:11px;">♡</span>
+        </span>
+        <div class="nav-logo-badge" style="font-size:1.8rem;">BLISS</div>
+      </div>
+      <p data-kz="Language Academy by Rakhatova Guzal — Қазақстандағы ағылшын, неміс, қытай, қазақ және итальян тілдерінің онлайн-мектебі. Ересектер мен 10 жастан асқан балаларға арналған.">Language Academy by Rakhatova Guzal — онлайн-школа английского, немецкого, китайского, казахского и итальянского языков в Казахстане. Для взрослых и детей от 10 лет.</p>
       <div class="footer-socials">
         <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -819,17 +957,17 @@
     </div>
 
     <div class="footer-col">
-      <h4>Навигация</h4>
+      <h4 data-kz="Шарлау">Навигация</h4>
       <ul>
-        <li><a href="#courses">Курсы</a></li>
-        <li><a href="#about">О нас</a></li>
+        <li><a href="#courses" data-kz="Курстар">Курсы</a></li>
+        <li><a href="#about" data-kz="Біз туралы">О нас</a></li>
         <li><a href="#speaking">Speaking Clubs</a></li>
-        <li><a href="https://wa.me/77076383455?text=Хочу%20записаться!" target="_blank" rel="noopener">Записаться</a></li>
+        <li><a href="https://wa.me/77076383455?text=Хочу%20записаться!" target="_blank" rel="noopener" data-kz="Жазылу">Записаться</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
-      <h4>Контакты</h4>
+      <h4 data-kz="Байланыс">Контакты</h4>
       <div class="footer-contact-item">
         <div class="contact-icon">📱</div>
         <div>
@@ -853,7 +991,7 @@
     </div>
 
   </div>
-  <div class="footer-bottom">
+  <div class="footer-bottom" data-kz="© 2025 BLISS Language Academy · Тіл ғашықтары үшін 💗 жасалған">
     © 2025 BLISS Language Academy · Разработано с 💗 для любителей языков
   </div>
 </footer>
@@ -900,6 +1038,34 @@
     el.style.transition = 'opacity .55s ease, transform .55s ease';
     observer.observe(el);
   });
+
+  // ── LANGUAGE SWITCH (RU / KZ) ──────────────────────
+  const titleRu = document.title;
+  const titleKz = 'BLISS Language Academy — шет тілдері онлайн-мектебі';
+
+  function applyLang(lang) {
+    document.querySelectorAll('[data-kz]').forEach(el => {
+      if (el.dataset.ru === undefined) el.dataset.ru = el.textContent;
+      el.textContent = lang === 'kz' ? el.dataset.kz : el.dataset.ru;
+    });
+    document.querySelectorAll('[data-kz-html]').forEach(el => {
+      if (el.dataset.ruHtml === undefined) el.dataset.ruHtml = el.innerHTML;
+      el.innerHTML = lang === 'kz' ? el.dataset.kzHtml : el.dataset.ruHtml;
+    });
+    document.documentElement.lang = lang === 'kz' ? 'kk' : 'ru';
+    document.title = lang === 'kz' ? titleKz : titleRu;
+    document.querySelectorAll('#langSwitch button, #mobileLangSwitch button').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    localStorage.setItem('bliss-lang', lang);
+  }
+
+  document.querySelectorAll('#langSwitch button, #mobileLangSwitch button').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+
+  const savedLang = localStorage.getItem('bliss-lang');
+  if (savedLang === 'kz') applyLang('kz');
 </script>
 </body>
 </html>
